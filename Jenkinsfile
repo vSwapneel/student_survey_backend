@@ -28,7 +28,7 @@ pipeline {
 //                     sh './mvn clean package'
 
                     dir('student_survey_backend') {
-                        sh './mvnw clean package'
+                        sh 'mvn clean package'
                     }
 
                     // Securely handling Docker login
