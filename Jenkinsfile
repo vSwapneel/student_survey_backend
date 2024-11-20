@@ -1,5 +1,6 @@
 pipeline {
-    agent any
+//     agent any
+    agent { label 'kubernetes-agent' }
     tools {
         maven 'Maven3.9.9'
     }
