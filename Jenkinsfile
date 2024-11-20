@@ -25,7 +25,11 @@ pipeline {
                     checkout scm
 
                     // Run Maven build directly in the root directory
-                    sh './mvn clean package'
+//                     sh './mvn clean package'
+
+                    dir('assignment3-backend') {
+                        sh 'mvn clean package'
+                    }
 
                     // Securely handling Docker login
                     withCredentials([usernamePassword(credentialsId: 'Docker',
