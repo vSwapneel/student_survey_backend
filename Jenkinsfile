@@ -27,7 +27,7 @@ pipeline {
                     // Run Maven build directly in the root directory
 //                     sh './mvn clean package'
 
-                    dir('assignment3-backend') {
+                    dir('student_survey_backend') {
                         sh 'mvn clean package'
                     }
 
