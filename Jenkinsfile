@@ -15,10 +15,22 @@ pipeline {
                 }
             }
         }
-        stage('Build and Package') {
+//         stage('Build and Package') {
+//             steps {
+//                 sh 'chmod +x ./mvnw'  // Add this line to ensure `mvnw` is executable
+//                 sh './mvnw clean package'
+//             }
+//         }
+
+        stage('Clone Repository') {
             steps {
-                sh 'chmod +x ./mvnw'  // Add this line to ensure `mvnw` is executable
-                sh './mvnw clean package'
+                checkout scm
+            }
+        }
+
+        stage('Build with Maven') {
+            steps {
+                sh 'sudo mvnw clean install'
             }
         }
         stage('Building API Image') {
