@@ -59,7 +59,9 @@ pipeline {
         stage('Deploying to Rancher') {
             steps {
                 script {
-                    sh "kubectl set image deployment/deployment container-0=${env.IMAGE_NAME}"
+                    withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]){
+                        sh "kubectl set image deployment/deployment container-0=${env.IMAGE_NAME}"
+                    }
                 }
             }
         }
