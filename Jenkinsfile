@@ -30,7 +30,7 @@ pipeline {
 
         stage('Build with Maven') {
             steps {
-                sh 'sudo mvnw clean install'
+                sh 'mvnw clean install'
             }
         }
         stage('Building API Image') {
