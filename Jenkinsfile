@@ -17,6 +17,7 @@ pipeline {
         }
         stage('Build and Package') {
             steps {
+                sh 'chmod +x ./mvnw'  // Add this line to ensure `mvnw` is executable
                 sh './mvnw clean package'
             }
         }
