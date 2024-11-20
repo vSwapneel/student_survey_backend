@@ -24,16 +24,10 @@ pipeline {
                     // Checkout SCM
                     checkout scm
 
-                    // Change directory to the project root
-                    dir('assignment3-backend') {
-                        // Set permissions on the mvnw script
-                        sh 'chmod +x ./mvnw'
+                    // Run Maven build directly in the root directory
+                    sh './mvn clean package'
 
-                        // Build the project using the Maven wrapper
-                        sh './mvnw clean package'
-                    }
-
-                    // Securely handle Docker login
+                    // Securely handling Docker login
                     withCredentials([usernamePassword(credentialsId: 'Docker',
                                                       usernameVariable: 'DOCKER_USER',
                                                       passwordVariable: 'DOCKER_PASS')]) {
@@ -42,16 +36,15 @@ pipeline {
                         """
                     }
 
-                    // Build Docker image
+                    // Building Docker image using the BUILD_TIMESTAMP
                     def imageName = "vswapneel/assignment3:${env.BUILD_TIMESTAMP}"
                     sh "docker build -t ${imageName} ."
 
-                    // Save image name for later stages
+                    // Saving image name for later stages
                     env.IMAGE_NAME = imageName
                 }
             }
         }
-
 
 
 
