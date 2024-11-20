@@ -44,7 +44,7 @@ pipeline {
                         """
                     }
                     def imageName = "vswapneel/assignment3:${env.BUILD_TIMESTAMP}"
-                    sh "sudo docker build -t ${imageName} ."
+                    sh "docker build -t ${imageName} ."
                     env.IMAGE_NAME = imageName
                 }
             }
@@ -52,7 +52,7 @@ pipeline {
         stage('Pushing Image to DockerHub') {
             steps {
                 script {
-                    sh "sudo docker push ${env.IMAGE_NAME}"
+                    sh "docker push ${env.IMAGE_NAME}"
                 }
             }
         }
