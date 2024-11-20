@@ -20,7 +20,7 @@ pipeline {
         stage('Build and Package') {
             steps {
                 dir('student_survey_backend') {  // Navigate to the correct directory
-                    sh './mvnw clean package'
+                    sh 'mvn clean package'
                 }
             }
         }
