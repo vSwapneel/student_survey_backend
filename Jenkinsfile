@@ -17,20 +17,23 @@ pipeline {
             }
         }
 
+        dir('student_survey_backend') {  // Navigate to the correct directory
+            sh './mvnw clean package'
+        }
+
 
         stage('Building API Image') {
             steps {
                 script {
                     // Checkout SCM
-                    checkout scm
+//                     checkout scm
 
                     // Run Maven build directly in the root directory
-//                     sh './mvn clean package'
+//                     sh './mvnw clean package'
 
-                    dir('student_survey_backend') {
-                        sh 'mvn clean package'
+                    dir('student_survey_backend') {  // Navigate to the correct directory
+                        sh './mvnw clean package'
                     }
-
                     // Securely handling Docker login
                     withCredentials([usernamePassword(credentialsId: 'Docker',
                                                       usernameVariable: 'DOCKER_USER',
