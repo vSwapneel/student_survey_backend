@@ -5,6 +5,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+//    Swapneel Suhas Vaidya
+//    Sanjana Sujith Kumar Arekal
+
+// Defines CORS config and describes Allowed methods "GET", "POST", "PUT", "DELETE"
+
 @Configuration
 public class CorsConfig {
     @Bean

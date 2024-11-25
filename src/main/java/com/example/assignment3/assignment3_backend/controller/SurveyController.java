@@ -9,6 +9,13 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
+
+//    Swapneel Suhas Vaidya
+//    Sanjana Sujith Kumar Arekal
+
+
+// Defines RESTful API endpoints to manage retrieval, creation, deletion and update operations
+
 @RestController
 @RequestMapping("/api/surveys")
 @CrossOrigin(origins = "*")
