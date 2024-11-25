@@ -8,6 +8,11 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import java.util.Date;
 
+//    Swapneel Suhas Vaidya
+//    Sanjana Sujith Kumar Arekal
+
+//  Represents the fields in the Database based on the attributes defined here. Contains Getter and Setter methods
+
 @Entity
 public class Survey {
 
