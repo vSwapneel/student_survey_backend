@@ -37,7 +37,7 @@ pipeline {
                             echo "\$DOCKER_PASS" | docker login -u "\$DOCKER_USER" --password-stdin
                         """
                     }
-                    def imageName = "vswapneel/assignment3:${env.BUILD_TIMESTAMP}"
+                    def imageName = "vswapneel/survey-backend:${env.BUILD_TIMESTAMP}"
                     sh "docker build -t ${imageName} ."
                     env.IMAGE_NAME = imageName
                 }
